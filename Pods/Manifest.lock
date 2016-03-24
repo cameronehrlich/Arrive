@@ -1,0 +1,18 @@
+PODS:
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - pop (1.0.9)
+  - PureLayout (3.0.1)
+
+DEPENDENCIES:
+  - MagicalRecord (~> 2.3)
+  - pop (~> 1.0)
+  - PureLayout (~> 3.0.1)
+
+SPEC CHECKSUMS:
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+
+COCOAPODS: 0.39.0
