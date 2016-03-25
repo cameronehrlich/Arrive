@@ -7,4 +7,5 @@ target 'Arrive' do
 	pod 'PureLayout', '~> 3.0.1'
 	pod 'MagicalRecord', '~> 2.3'
 	pod 'pop', '~> 1.0'
+	pod 'Alamofire', '~> 3.0'
 end

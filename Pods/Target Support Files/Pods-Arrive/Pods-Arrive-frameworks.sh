@@ -84,11 +84,13 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Arrive/Alamofire.framework"
   install_framework "Pods-Arrive/MagicalRecord.framework"
   install_framework "Pods-Arrive/PureLayout.framework"
   install_framework "Pods-Arrive/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Arrive/Alamofire.framework"
   install_framework "Pods-Arrive/MagicalRecord.framework"
   install_framework "Pods-Arrive/PureLayout.framework"
   install_framework "Pods-Arrive/pop.framework"

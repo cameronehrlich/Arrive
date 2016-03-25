@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="Flight" representedClassName="Flight" syncable="YES">
+        <attribute name="arrivalAirportCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="arrivalDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="carrierCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="departureAirportCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="departureDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="flightId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flightNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Flight" positionX="-63" positionY="-18" width="128" height="150"/>
+    </elements>
+</model>

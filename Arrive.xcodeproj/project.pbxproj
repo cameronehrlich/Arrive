@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2E22A0ACB703AECBF87113BE /* Pods_Arrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCE6B754089313D131E48A0 /* Pods_Arrive.framework */; };
 		325765A61CA4B8D1003DE35C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765A51CA4B8D1003DE35C /* Constants.swift */; };
+		325765A81CA4BBAD003DE35C /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765A71CA4BBAD003DE35C /* CoreManager.swift */; };
+		325765AB1CA4BFA2003DE35C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 325765A91CA4BFA2003DE35C /* Model.xcdatamodeld */; };
+		325765AF1CA4D16C003DE35C /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765AD1CA4D16C003DE35C /* Flight+CoreDataProperties.swift */; };
+		325765B01CA4D16C003DE35C /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765AE1CA4D16C003DE35C /* Flight.swift */; };
 		32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */; };
 		32C49ECF1CA49C6B00FDD0FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */; };
 		32C49ED41CA49C6B00FDD0FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32C49ED31CA49C6B00FDD0FF /* Assets.xcassets */; };
@@ -18,6 +22,10 @@
 /* Begin PBXFileReference section */
 		3183F281E9D7A5B59252A3C9 /* Pods-Arrive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arrive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Arrive/Pods-Arrive.debug.xcconfig"; sourceTree = "<group>"; };
 		325765A51CA4B8D1003DE35C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		325765A71CA4BBAD003DE35C /* CoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
+		325765AA1CA4BFA2003DE35C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		325765AD1CA4D16C003DE35C /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		325765AE1CA4D16C003DE35C /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		32C49EC91CA49C6B00FDD0FF /* Arrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +56,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		325765AC1CA4BFAB003DE35C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				325765A91CA4BFA2003DE35C /* Model.xcdatamodeld */,
+				325765A71CA4BBAD003DE35C /* CoreManager.swift */,
+				325765AD1CA4D16C003DE35C /* Flight+CoreDataProperties.swift */,
+				325765AE1CA4D16C003DE35C /* Flight.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		32C49EC01CA49C6B00FDD0FF = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +88,7 @@
 		32C49ECB1CA49C6B00FDD0FF /* Arrive */ = {
 			isa = PBXGroup;
 			children = (
+				325765AC1CA4BFAB003DE35C /* Model */,
 				32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */,
 				32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */,
 				325765A51CA4B8D1003DE35C /* Constants.swift */,
@@ -209,9 +229,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325765A81CA4BBAD003DE35C /* CoreManager.swift in Sources */,
 				32C49ECF1CA49C6B00FDD0FF /* ViewController.swift in Sources */,
+				325765AB1CA4BFA2003DE35C /* Model.xcdatamodeld in Sources */,
+				325765AF1CA4D16C003DE35C /* Flight+CoreDataProperties.swift in Sources */,
 				32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */,
 				325765A61CA4B8D1003DE35C /* Constants.swift in Sources */,
+				325765B01CA4D16C003DE35C /* Flight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +386,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		325765A91CA4BFA2003DE35C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				325765AA1CA4BFA2003DE35C /* Model.xcdatamodel */,
+			);
+			currentVersion = 325765AA1CA4BFA2003DE35C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32C49EC11CA49C6B00FDD0FF /* Project object */;
 }
