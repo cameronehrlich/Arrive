@@ -12,10 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Instatiate root navigation view controller, and slap it into the window!
+        
+        self.navController = UINavigationController()
+        
+        let viewController: ViewController = ViewController()
+        
+        self.navController!.pushViewController(viewController, animated: false)
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        self.window!.rootViewController = navController
+        
+        self.window!.backgroundColor = UIColor.whiteColor()
+        
+        self.window!.makeKeyAndVisible()
+        
         return true
     }
 
