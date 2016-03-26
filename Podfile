@@ -8,4 +8,6 @@ target 'Arrive' do
 	pod 'MagicalRecord', '~> 2.3'
 	pod 'pop', '~> 1.0'
 	pod 'Alamofire', '~> 3.0'
+    pod 'SwiftyJSON', '~> 2.3.2'
+    pod 'Timepiece', '~> 0.4.2'
 end

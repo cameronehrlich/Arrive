@@ -9,6 +9,7 @@
 import Foundation
 import MagicalRecord
 import Alamofire
+import SwiftyJSON
 
 class CoreManager {
     
@@ -20,20 +21,26 @@ class CoreManager {
     
     internal func setup() -> Void {
         MagicalRecord.setupCoreDataStackWithInMemoryStore();
-        self.fetchTestAirport()
     }
     
-    internal func fetchTestAirport() -> Void {
-        Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
+    internal func fetchDepartures(airlineCode: String, departureDate: NSDate) -> Void {
+        
+        RemoteManager.sharedManager.fetchFlights(airlineCode, date: departureDate) { (jsonResponse, error) in
+            
+            if (error != nil) {
+                print("Error: \(error.debugDescription)")
+                return
+            }
+            
+            if let flights = jsonResponse?["flightStatuses"] {
                 
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                for (_, subJson):(String, JSON) in flights {
+                    let newFlight = Flight.MR_createEntity()
+                    newFlight?.refreshFromJSON(subJson)
                 }
+            }
+            
+            print("\(Flight.MR_findAll())")
         }
     }
 }

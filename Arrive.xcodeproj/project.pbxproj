@@ -13,6 +13,7 @@
 		325765AB1CA4BFA2003DE35C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 325765A91CA4BFA2003DE35C /* Model.xcdatamodeld */; };
 		325765AF1CA4D16C003DE35C /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765AD1CA4D16C003DE35C /* Flight+CoreDataProperties.swift */; };
 		325765B01CA4D16C003DE35C /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765AE1CA4D16C003DE35C /* Flight.swift */; };
+		32755CE01CA65C7600D2B8BF /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CDF1CA65C7600D2B8BF /* RemoteManager.swift */; };
 		32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */; };
 		32C49ECF1CA49C6B00FDD0FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */; };
 		32C49ED41CA49C6B00FDD0FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32C49ED31CA49C6B00FDD0FF /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		325765AA1CA4BFA2003DE35C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		325765AD1CA4D16C003DE35C /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		325765AE1CA4D16C003DE35C /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		32755CDF1CA65C7600D2B8BF /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
 		32C49EC91CA49C6B00FDD0FF /* Arrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				325765A91CA4BFA2003DE35C /* Model.xcdatamodeld */,
 				325765A71CA4BBAD003DE35C /* CoreManager.swift */,
+				32755CDF1CA65C7600D2B8BF /* RemoteManager.swift */,
 				325765AD1CA4D16C003DE35C /* Flight+CoreDataProperties.swift */,
 				325765AE1CA4D16C003DE35C /* Flight.swift */,
 			);
@@ -234,6 +237,7 @@
 				325765AB1CA4BFA2003DE35C /* Model.xcdatamodeld in Sources */,
 				325765AF1CA4D16C003DE35C /* Flight+CoreDataProperties.swift in Sources */,
 				32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */,
+				32755CE01CA65C7600D2B8BF /* RemoteManager.swift in Sources */,
 				325765A61CA4B8D1003DE35C /* Constants.swift in Sources */,
 				325765B01CA4D16C003DE35C /* Flight.swift in Sources */,
 			);

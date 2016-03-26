@@ -5,17 +5,23 @@ PODS:
   - MagicalRecord/Core (2.3.2)
   - pop (1.0.9)
   - PureLayout (3.0.1)
+  - SwiftyJSON (2.3.2)
+  - Timepiece (0.4.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - MagicalRecord (~> 2.3)
   - pop (~> 1.0)
   - PureLayout (~> 3.0.1)
+  - SwiftyJSON (~> 2.3.2)
+  - Timepiece (~> 0.4.2)
 
 SPEC CHECKSUMS:
   Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Timepiece: cf53bb908bf542acc0e3d5f69cabfed869df4ebd
 
 COCOAPODS: 0.39.0

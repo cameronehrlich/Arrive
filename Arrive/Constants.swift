@@ -14,5 +14,6 @@ struct K {
     struct FlightTracker {
         static let appID = "0ec13b93"
         static let appKey = "ab3e8107b1c0abaa933d45e0b1e7f11b"
+        static let baseUrl = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/"
     }
 }
