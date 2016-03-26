@@ -19,13 +19,43 @@ class RemoteManager {
         // self.setup()
     }
     
-    internal func fetchFlights(from: String, date: NSDate, completion: (jsonResponse: JSON?, error: NSError?) -> Void) {
+    internal func fetchAirports(query: String, completion: (jsonResponse: JSON?, error: NSError?) -> Void) -> Request {
+        
+        let parameters = ["api_key" : K.IATACodes.apiKey, "query" : query]
+        
+        let request = Alamofire.request(.GET, K.IATACodes.baseUrl, parameters: parameters)
+            .responseJSON { response in
+                
+                func failure(error: NSError) {
+                    completion(jsonResponse: nil, error: error)
+                }
+                
+                // Switch on request's success
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        completion(jsonResponse: JSON(value), error: nil)
+                    }
+                    else {
+                        failure(response.result.error!)
+                    }
+                case .Failure(let error):
+                    failure(error)
+                }
+        }
+        
+        return request
+    }
+    
+    internal func fetchFlights(from: String, date: NSDate, completion: (jsonResponse: JSON?, error: NSError?) -> Void) -> Request {
         
         let dateString = [date.year, date.month, date.day, date.hour].componentsJoinedByString("/")
-    
+        
         let path = "airport/status/\(from)/dep/\(dateString)"
         
-        Alamofire.request(.GET, K.FlightTracker.baseUrl + path, parameters: self.defaultParameters())
+        let parameters = ["appId" : K.FlightTracker.appID, "appKey" : K.FlightTracker.appKey]
+        
+        let request = Alamofire.request(.GET, K.FlightTracker.baseUrl + path, parameters: parameters)
             .responseJSON { response in
                 
                 // Generalized failure handler
@@ -46,7 +76,11 @@ class RemoteManager {
                     failure(error)
                 }
         }
+        
+        return request
     }
+    
+    // MARK: - Class
     
     class func dateFromString(dateString: String?) -> NSDate? {
         let dateFormatter = NSDateFormatter()
@@ -55,11 +89,5 @@ class RemoteManager {
             return dateFormatter.dateFromString(finalString)
         }
         return nil
-    }
-    
-    // MARK : - Private
-    
-    private func defaultParameters() -> Dictionary<String, String> {
-        return ["appId" : K.FlightTracker.appID, "appKey" : K.FlightTracker.appKey]
     }
 }

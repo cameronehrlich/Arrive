@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="Airline" representedClassName=".Airline" syncable="YES">
+        <attribute name="airlineCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Airport" representedClassName=".Airport" syncable="YES">
+        <attribute name="airportCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="autocomplete" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="classification" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="elevationFeet" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="localTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="regionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stateCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeZoneRegionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="utcOffsetHours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="weatherUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Flight" representedClassName=".Flight" syncable="YES">
+        <attribute name="arrivalAirportCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="arrivalDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="carrierCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="departureAirportCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="departureDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="flightId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flightNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Flight" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Airline" positionX="-63" positionY="36" width="128" height="90"/>
+        <element name="Airport" positionX="-54" positionY="45" width="128" height="330"/>
+    </elements>
+</model>

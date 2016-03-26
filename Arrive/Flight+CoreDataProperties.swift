@@ -2,7 +2,7 @@
 //  Flight+CoreDataProperties.swift
 //  
 //
-//  Created by Cameron Ehrlich on 3/24/16.
+//  Created by Cameron Ehrlich on 3/26/16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,12 +14,12 @@ import CoreData
 
 extension Flight {
 
+    @NSManaged var arrivalAirportCode: String?
+    @NSManaged var arrivalDate: NSDate?
+    @NSManaged var carrierCode: String?
+    @NSManaged var departureAirportCode: String?
+    @NSManaged var departureDate: NSDate?
     @NSManaged var flightId: String?
     @NSManaged var flightNumber: String?
-    @NSManaged var departureDate: NSDate?
-    @NSManaged var arrivalDate: NSDate?
-    @NSManaged var departureAirportCode: String?
-    @NSManaged var arrivalAirportCode: String?
-    @NSManaged var carrierCode: String?
 
 }

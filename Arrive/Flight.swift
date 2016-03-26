@@ -10,13 +10,12 @@ import Foundation
 import CoreData
 import SwiftyJSON
 
-@objc(Flight)
 class Flight: NSManagedObject {
     
     func refreshFromJSON(json: JSON) -> Void {
         
-        flightId = json.dictionaryValue["flightId"]?.number?.stringValue;
-        flightNumber = json.dictionaryValue["flightNumber"]?.string;
+        flightId = json.dictionaryValue["flightId"]?.number?.stringValue
+        flightNumber = json.dictionaryValue["flightNumber"]?.string
         carrierCode = json.dictionaryValue["carrierFsCode"]?.string
         
         departureAirportCode = json.dictionaryValue["departureAirportFsCode"]?.string

@@ -22,7 +22,9 @@ class ViewController: UIViewController {
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
-        CoreManager.sharedManager.fetchDepartures("LAX", departureDate: NSDate())
+        CoreManager.sharedManager.fetchDepartures("ORD", departureDate: NSDate())
+        
+        CoreManager.sharedManager.fetchAirports("New York")
     }
     
     override func updateViewConstraints() {

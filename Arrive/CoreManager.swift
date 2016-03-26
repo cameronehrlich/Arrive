@@ -23,24 +23,50 @@ class CoreManager {
         MagicalRecord.setupCoreDataStackWithInMemoryStore();
     }
     
-    internal func fetchDepartures(airlineCode: String, departureDate: NSDate) -> Void {
+    internal func fetchAirports(query: String) -> Request {
         
-        RemoteManager.sharedManager.fetchFlights(airlineCode, date: departureDate) { (jsonResponse, error) in
+        let request = RemoteManager.sharedManager.fetchAirports(query, completion: { (jsonResponse, error) in
+
+            if let airports = jsonResponse?["response", "airports"] {
+                for (_, subJson) in airports {
+                    let newAirport = Airport.MR_createEntity()
+                    newAirport?.refreshFromJSON(subJson, fromSearch: true)
+                }
+            }
+        })
+        
+        return request
+    }
+    
+    internal func fetchDepartures(airlineCode: String, departureDate: NSDate) -> Request {
+        
+        let request = RemoteManager.sharedManager.fetchFlights(airlineCode, date: departureDate) { (jsonResponse, error) in
             
-            if (error != nil) {
-                print("Error: \(error.debugDescription)")
-                return
+            // Parse Airlines
+            if let airlines = jsonResponse?["appendix", "airlines"] {
+                for (_, subJson) in airlines {
+                    let newAirline = Airline.MR_createEntity()
+                    newAirline?.refreshFromJSON(subJson)
+                }
             }
             
+            // Parse Airports
+            if let airports = jsonResponse?["appendix", "airports"] {
+                for (_, subJson) in airports {
+                    let newAirport = Airport.MR_createEntity()
+                    newAirport?.refreshFromJSON(subJson)
+                }
+            }
+            
+            // Parse Flights
             if let flights = jsonResponse?["flightStatuses"] {
-                
-                for (_, subJson):(String, JSON) in flights {
+                for (_, subJson) in flights {
                     let newFlight = Flight.MR_createEntity()
                     newFlight?.refreshFromJSON(subJson)
                 }
             }
-            
-            print("\(Flight.MR_findAll())")
         }
+        
+        return request
     }
 }

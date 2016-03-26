@@ -12,8 +12,13 @@ import Foundation
 
 struct K {
     struct FlightTracker {
+        static let baseUrl = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/"
         static let appID = "0ec13b93"
         static let appKey = "ab3e8107b1c0abaa933d45e0b1e7f11b"
-        static let baseUrl = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/"
+    }
+    
+    struct IATACodes {
+        static let baseUrl = "http://iatacodes.org/api/v4/autocomplete"
+        static let apiKey = "0030abb7-a53e-4445-80dc-28034bf635ab"
     }
 }
