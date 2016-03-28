@@ -2,7 +2,7 @@
 //  Airline+CoreDataProperties.swift
 //  
 //
-//  Created by Cameron Ehrlich on 3/26/16.
+//  Created by Cameron Ehrlich on 3/28/16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

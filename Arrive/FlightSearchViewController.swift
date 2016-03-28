@@ -41,7 +41,7 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         view.addSubview(timePicker)
         timePicker.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero, excludingEdge: .Bottom)
         timePicker.selectRow(NSDate().hour - 1, inComponent: 1, animated: false)
-        
+
         // Configure tableView
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,7 +51,6 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         tableView.autoPinEdge(.Top, toEdge: .Bottom, ofView: timePicker, withOffset: 0)
         
         fetchedResultsController.delegate = self
-        
         beginFetch()
     }
     
@@ -63,7 +62,7 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return 7 // Days
+            return 3 // Days - FlightStatus only supports querying the next 3-4 days
         case 1:
             return 24 // Hours
         default:
@@ -96,9 +95,9 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch component {
         case 0:
-            return 150.0
+            return view.bounds.width/2.0
         case 1:
-            return 150.0
+            return view.bounds.width/2.0
         default:
             return 0.0
         }
@@ -121,6 +120,7 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         let hour = timePicker.selectedRowInComponent(1) + 1
         let date = NSDate.date(year: now.year, month: now.month, day: now.day + day, hour: hour, minute: 0, second: 0)
         flightsRequest = CoreManager.sharedManager.fetchDepartures(airportCode!, departureDate: date)
+        
     }
     
     // MARK: - UITableViewDelegate
@@ -136,6 +136,10 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         return UITableViewAutomaticDimension
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "\(airportCode!) 🛫"
+    }
+    
     // MARK: - UITableViewDatasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(FlightTableViewCell.identifier, forIndexPath: indexPath) as! FlightTableViewCell
@@ -146,13 +150,7 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     func configureCell(cell: FlightTableViewCell, flight: Flight) -> Void {
-        
-        let departure = "🛫 \(flight.departureDate!.stringFromFormat("hh:mm"))"
-        let arrival = "\(flight.arrivalDate!.stringFromFormat("hh:mm")) 🛬 \(flight.arrivalAirportCode!)"
-        let airline = Airline.MR_findFirstByAttribute("airlineCode", withValue: flight.carrierCode!)
-        
-        cell.textLabel?.text = departure + " ✈︎ " + arrival
-        cell.detailTextLabel?.text = "\(airline!.name!) #\(flight.flightNumber!)"
+        cell.flight = flight
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
@@ -185,6 +183,4 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.endUpdates()
     }
-
-    
 }

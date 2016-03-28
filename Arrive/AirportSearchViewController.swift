@@ -24,6 +24,7 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
         controller.hidesNavigationBarDuringPresentation = false
         controller.dimsBackgroundDuringPresentation = false
         controller.definesPresentationContext = true
+        controller.searchBar.showsCancelButton = false
         controller.searchBar.searchBarStyle = .Minimal
         controller.searchBar.sizeToFit()
         controller.searchBar.placeholder = "Where are you departing from?"
@@ -46,7 +47,6 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
         // Configure tableView
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .None
         tableView.keyboardDismissMode = .OnDrag
         tableView.registerClass(AirportTableViewCell.self, forCellReuseIdentifier: AirportTableViewCell.identifier)
         view.addSubview(tableView)
@@ -56,51 +56,7 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
         searchController.searchResultsUpdater = self
         fetchedResultsController.delegate = self
         tableView.tableHeaderView = searchController.searchBar
-                
-        let toolbar = UIToolbar(forAutoLayout: ())
-        toolbar.barStyle = .Default
-        toolbar.barTintColor = UIColor.sk_purpleColor()
-        
-        continueButton.bounds = CGRectMake(0, 0, view.bounds.width, toolbar.intrinsicContentSize().height)
-        continueButton.titleLabel!.font = UIFont.sk_boldFont(22)
-        continueButton.setTitle("Continue", forState: .Normal)
-        continueButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        continueButton.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.75), forState: .Highlighted)
-        continueButton.titleLabel!.textAlignment = .Center
-        continueButton.addTarget(self, action: #selector(AirportSearchViewController.continueAction(_:)), forControlEvents: .TouchUpInside)
-    
-        let barButtonItem = UIBarButtonItem(customView: continueButton)
-        barButtonItem.target = self
-        barButtonItem.action = #selector(AirportSearchViewController.continueAction(_:))
-        
-        toolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
-            barButtonItem,
-            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        ]
-        
-        searchController.searchBar.inputAccessoryView = toolbar
-        deselectAllRows()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        searchController.active = true
-        searchController.searchBar.becomeFirstResponder()
-    }
-    
-    func continueAction(sender: UIButton?) -> Void {
-        searchController.active = false
-        
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            if let airport = fetchedResultsController.fetchedObjects![selectedIndexPath.item] as? Airport {
-                let viewController = FlightSelectionViewController(airportCode: airport.airportCode!)
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
-        }
-        else {
-            print("you need to select an airport first!")
-        }
+        tableView.tableHeaderView?.backgroundColor = UIColor.whiteColor()
     }
     
     // MARK : - UITableViewDataSource
@@ -113,7 +69,7 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return UITableViewAutomaticDimension
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -125,18 +81,21 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func configureCell(cell: AirportTableViewCell, airport: Airport) -> Void {
-        cell.textLabel?.text = airport.airportCode
-        cell.detailTextLabel?.text = airport.name
+        cell.airport = airport
     }
     
     // MARK : - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        continueButton.alpha = 1.0
+        if let airport = fetchedResultsController.fetchedObjects![indexPath.item] as? Airport {
+            let viewController = FlightSelectionViewController(airportCode: airport.airportCode!)
+            
+            searchController.active = false
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        deselectAllRows()
         tableView.beginUpdates()
     }
     
@@ -177,16 +136,6 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
             CoreManager.sharedManager.resetAirports()
             searchRequest = CoreManager.sharedManager.fetchAirports(text)
         }
-    }
-    
-    internal func deselectAllRows() -> Void {
-        if let indexPaths = tableView.indexPathsForSelectedRows {
-            for indexPath in indexPaths {
-                tableView.deselectRowAtIndexPath(indexPath, animated: false)
-            }
-        }
-        
-        continueButton.alpha = 0.3
     }
     
     override func didReceiveMemoryWarning() {

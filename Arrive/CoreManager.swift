@@ -56,6 +56,8 @@ class CoreManager {
     // Mark: - Flights
     internal func fetchDepartures(airlineCode: String, departureDate: NSDate) -> Request {
         
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
         let request = RemoteManager.sharedManager.fetchFlights(airlineCode, date: departureDate) { (jsonResponse, error) in
             
             // Parse Airlines
@@ -81,6 +83,9 @@ class CoreManager {
                     newFlight?.refreshFromJSON(subJson)
                 }
             }
+
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
         }
         
         return request

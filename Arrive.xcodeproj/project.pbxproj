@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		2E22A0ACB703AECBF87113BE /* Pods_Arrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCE6B754089313D131E48A0 /* Pods_Arrive.framework */; };
 		321D4D281CA94F1500C20945 /* FlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D4D271CA94F1500C20945 /* FlightTableViewCell.swift */; };
+		321D4D2C1CA9833F00C20945 /* Airline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D4D291CA9833F00C20945 /* Airline+CoreDataProperties.swift */; };
+		321D4D2D1CA9833F00C20945 /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D4D2A1CA9833F00C20945 /* Flight+CoreDataProperties.swift */; };
+		321D4D2E1CA9833F00C20945 /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D4D2B1CA9833F00C20945 /* Airport+CoreDataProperties.swift */; };
 		325765A61CA4B8D1003DE35C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765A51CA4B8D1003DE35C /* Constants.swift */; };
 		325765A81CA4BBAD003DE35C /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765A71CA4BBAD003DE35C /* CoreManager.swift */; };
 		325765AB1CA4BFA2003DE35C /* Arrive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 325765A91CA4BFA2003DE35C /* Arrive.xcdatamodeld */; };
 		325765B01CA4D16C003DE35C /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325765AE1CA4D16C003DE35C /* Flight.swift */; };
 		32755CE01CA65C7600D2B8BF /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CDF1CA65C7600D2B8BF /* RemoteManager.swift */; };
-		32755CE61CA68AC400D2B8BF /* Airline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CE11CA68AC400D2B8BF /* Airline+CoreDataProperties.swift */; };
 		32755CE71CA68AC400D2B8BF /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CE21CA68AC400D2B8BF /* Airline.swift */; };
 		32755CEA1CA68AC400D2B8BF /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CE51CA68AC400D2B8BF /* Airport.swift */; };
-		32755CEC1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CEB1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift */; };
-		32755CF11CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CF01CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift */; };
 		328DF2721CA9411300C627A9 /* FlightSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328DF2711CA9411300C627A9 /* FlightSearchViewController.swift */; };
 		328DF2751CA9443900C627A9 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328DF2741CA9443900C627A9 /* NavigationBar.swift */; };
 		329EC9E51CA8E03D00A455C0 /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329EC9E41CA8E03D00A455C0 /* AirportTableViewCell.swift */; };
@@ -33,16 +33,16 @@
 /* Begin PBXFileReference section */
 		3183F281E9D7A5B59252A3C9 /* Pods-Arrive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arrive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Arrive/Pods-Arrive.debug.xcconfig"; sourceTree = "<group>"; };
 		321D4D271CA94F1500C20945 /* FlightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightTableViewCell.swift; sourceTree = "<group>"; };
+		321D4D291CA9833F00C20945 /* Airline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Airline+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		321D4D2A1CA9833F00C20945 /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		321D4D2B1CA9833F00C20945 /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		325765A51CA4B8D1003DE35C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		325765A71CA4BBAD003DE35C /* CoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
 		325765AA1CA4BFA2003DE35C /* Arrive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Arrive.xcdatamodel; sourceTree = "<group>"; };
 		325765AE1CA4D16C003DE35C /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		32755CDF1CA65C7600D2B8BF /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
-		32755CE11CA68AC400D2B8BF /* Airline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Airline+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		32755CE21CA68AC400D2B8BF /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		32755CE51CA68AC400D2B8BF /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
-		32755CEB1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		32755CF01CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		328DF2711CA9411300C627A9 /* FlightSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightSearchViewController.swift; sourceTree = "<group>"; };
 		328DF2741CA9443900C627A9 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		329EC9E41CA8E03D00A455C0 /* AirportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,11 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				32755CE21CA68AC400D2B8BF /* Airline.swift */,
-				32755CE11CA68AC400D2B8BF /* Airline+CoreDataProperties.swift */,
 				32755CE51CA68AC400D2B8BF /* Airport.swift */,
-				32755CF01CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift */,
 				325765AE1CA4D16C003DE35C /* Flight.swift */,
-				32755CEB1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift */,
+				321D4D291CA9833F00C20945 /* Airline+CoreDataProperties.swift */,
+				321D4D2A1CA9833F00C20945 /* Flight+CoreDataProperties.swift */,
+				321D4D2B1CA9833F00C20945 /* Airport+CoreDataProperties.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -298,20 +298,20 @@
 				325765AB1CA4BFA2003DE35C /* Arrive.xcdatamodeld in Sources */,
 				329EC9EA1CA918D200A455C0 /* UIFontExtension.swift in Sources */,
 				329EC9E81CA8E41E00A455C0 /* UIColorExtension.swift in Sources */,
+				321D4D2C1CA9833F00C20945 /* Airline+CoreDataProperties.swift in Sources */,
 				32755CEA1CA68AC400D2B8BF /* Airport.swift in Sources */,
 				32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */,
-				32755CF11CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift in Sources */,
 				325765A61CA4B8D1003DE35C /* Constants.swift in Sources */,
+				321D4D2E1CA9833F00C20945 /* Airport+CoreDataProperties.swift in Sources */,
 				329EC9E51CA8E03D00A455C0 /* AirportTableViewCell.swift in Sources */,
 				325765A81CA4BBAD003DE35C /* CoreManager.swift in Sources */,
 				32755CE01CA65C7600D2B8BF /* RemoteManager.swift in Sources */,
 				32C49ECF1CA49C6B00FDD0FF /* AirportSearchViewController.swift in Sources */,
 				325765B01CA4D16C003DE35C /* Flight.swift in Sources */,
 				321D4D281CA94F1500C20945 /* FlightTableViewCell.swift in Sources */,
+				321D4D2D1CA9833F00C20945 /* Flight+CoreDataProperties.swift in Sources */,
 				328DF2721CA9411300C627A9 /* FlightSearchViewController.swift in Sources */,
-				32755CEC1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift in Sources */,
 				32755CE71CA68AC400D2B8BF /* Airline.swift in Sources */,
-				32755CE61CA68AC400D2B8BF /* Airline+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

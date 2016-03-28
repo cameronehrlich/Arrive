@@ -23,7 +23,7 @@ class Airport: NSManagedObject {
             
             autocomplete = NSNumber(bool: false) // Came from FlightStatus API
             
-            airportCode = json.dictionaryValue["fs"]?.string
+            airportCode = json.dictionaryValue["iata"]?.string
             name = json.dictionaryValue["name"]?.string
             city = json.dictionaryValue["city"]?.string
             cityCode = json.dictionaryValue["cityCode"]?.string
@@ -50,7 +50,7 @@ class Airport: NSManagedObject {
             
             autocomplete = NSNumber(bool: true) // Came from IATACodes autocomplete API
             
-            airportCode = json.dictionaryValue["city_code"]?.string
+            airportCode = json.dictionaryValue["code"]?.string
             name = json.dictionaryValue["name"]?.string
             
             city = json.dictionaryValue["city_name"]?.string

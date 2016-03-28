@@ -14,7 +14,7 @@ class Airline: NSManagedObject {
 
     func refreshFromJSON(json: JSON) -> Void {
         
-        airlineCode = json.dictionaryValue["fs"]?.string
+        airlineCode = json.dictionaryValue["iata"]?.string
         name = json.dictionaryValue["name"]?.string
         phoneNumber = json.dictionaryValue["phoneNumber"]?.string
         

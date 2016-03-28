@@ -12,7 +12,12 @@ class AirportTableViewCell: UITableViewCell {
     
     static let identifier: String = "AirportCell"
     
-    let separatorLine = UIView(forAutoLayout: ())
+    var airport: Airport? {
+        didSet {
+            textLabel?.text = "\(airport!.airportCode!) ✈︎ \(airport!.name!)"
+            detailTextLabel?.text = "• \(airport!.city!) "
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,18 +25,14 @@ class AirportTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+        
         selectionStyle = .None
-        textLabel?.font = UIFont.sk_boldFont(21)
-        detailTextLabel?.font = UIFont.sk_regularFont(12)
-        detailTextLabel?.textColor = UIColor.darkTextColor()
         
+        textLabel?.font = UIFont.sk_boldFont(17)
+        textLabel?.textColor = UIColor.sk_purpleColor()
         
-        separatorLine.backgroundColor = UIColor.sk_purpleColor()
-        addSubview(separatorLine)
-        separatorLine.autoSetDimension(.Height, toSize: 1.0)
-        separatorLine.autoPinEdgeToSuperviewEdge(.Bottom)
-        separatorLine.autoPinEdgeToSuperviewMargin(.Left)
-        separatorLine.autoPinEdgeToSuperviewMargin(.Right)
+        detailTextLabel?.font = UIFont.sk_regularFont(13)
+        detailTextLabel?.textColor = UIColor.sk_purpleColor().colorWithAlphaComponent(0.80)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -39,11 +40,9 @@ class AirportTableViewCell: UITableViewCell {
         
         if selected {
             backgroundColor = UIColor.sk_purpleColor().colorWithAlphaComponent(0.2)
-            separatorLine.hidden = true
         }
         else {
             backgroundColor = nil
-            separatorLine.hidden = false
         }
     }
     
