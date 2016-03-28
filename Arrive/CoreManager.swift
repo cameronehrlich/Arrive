@@ -23,14 +23,15 @@ class CoreManager {
         MagicalRecord.setupCoreDataStackWithInMemoryStore();
     }
     
+    // Mark: - Airports
     internal func fetchAirports(query: String) -> Request {
         
         let request = RemoteManager.sharedManager.fetchAirports(query, completion: { (jsonResponse, error) in
 
             if let airports = jsonResponse?["response", "airports"] {
-                for (_, subJson) in airports {
+                for (index, subJson) in airports {
                     let newAirport = Airport.MR_createEntity()
-                    newAirport?.refreshFromJSON(subJson, fromSearch: true)
+                    newAirport?.refreshFromJSON(subJson, fromSearch: true, index: Int(index)!)
                 }
             }
         })
@@ -38,6 +39,22 @@ class CoreManager {
         return request
     }
     
+    internal func resetAirports() -> Void {
+        
+        Airport.MR_truncateAll()
+    }
+    
+    internal func airportSearchFetchedResultsController() -> NSFetchedResultsController {
+        
+        let predicate = NSPredicate(format: "autocomplete = true")
+        
+        let controller: NSFetchedResultsController = Airport.MR_fetchAllSortedBy("sortOrder", ascending: true, withPredicate: predicate, groupBy: nil, delegate: nil)
+        
+        return controller
+    }
+    
+    
+    // Mark: - Flights
     internal func fetchDepartures(airlineCode: String, departureDate: NSDate) -> Request {
         
         let request = RemoteManager.sharedManager.fetchFlights(airlineCode, date: departureDate) { (jsonResponse, error) in

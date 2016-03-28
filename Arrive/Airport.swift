@@ -13,10 +13,10 @@ import SwiftyJSON
 class Airport: NSManagedObject {
     
     func refreshFromJSON(json: JSON) -> Void {
-        self.refreshFromJSON(json, fromSearch: false)
+        self.refreshFromJSON(json, fromSearch: false, index: 0)
     }
     
-    func refreshFromJSON(json: JSON, fromSearch: Bool) -> Void {
+    func refreshFromJSON(json: JSON, fromSearch: Bool, index: Int) -> Void {
     
         // Parse responses separatley depending on which API I am receiving Airport data from
         if !fromSearch {
@@ -60,6 +60,7 @@ class Airport: NSManagedObject {
             
             latitude = json.dictionaryValue["lat"]?.number
             longitude = json.dictionaryValue["lng"]?.number
+            sortOrder = index
         }
     }
     

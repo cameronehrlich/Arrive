@@ -18,8 +18,10 @@
 		32755CEA1CA68AC400D2B8BF /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CE51CA68AC400D2B8BF /* Airport.swift */; };
 		32755CEC1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CEB1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift */; };
 		32755CF11CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CF01CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift */; };
+		329EC9E51CA8E03D00A455C0 /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329EC9E41CA8E03D00A455C0 /* AirportTableViewCell.swift */; };
+		329EC9E81CA8E41E00A455C0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329EC9E71CA8E41E00A455C0 /* UIColorExtension.swift */; };
 		32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */; };
-		32C49ECF1CA49C6B00FDD0FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */; };
+		32C49ECF1CA49C6B00FDD0FF /* AirportSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECE1CA49C6B00FDD0FF /* AirportSearchViewController.swift */; };
 		32C49ED41CA49C6B00FDD0FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32C49ED31CA49C6B00FDD0FF /* Assets.xcassets */; };
 		32C49ED71CA49C6B00FDD0FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C49ED51CA49C6B00FDD0FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -36,9 +38,11 @@
 		32755CE51CA68AC400D2B8BF /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		32755CEB1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		32755CF01CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		329EC9E41CA8E03D00A455C0 /* AirportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
+		329EC9E71CA8E41E00A455C0 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		32C49EC91CA49C6B00FDD0FF /* Arrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32C49ECE1CA49C6B00FDD0FF /* AirportSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchViewController.swift; sourceTree = "<group>"; };
 		32C49ED31CA49C6B00FDD0FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32C49ED61CA49C6B00FDD0FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32C49ED81CA49C6B00FDD0FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +94,27 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		329EC9E31CA8E01E00A455C0 /* Airport Search */ = {
+			isa = PBXGroup;
+			children = (
+				32C49ECE1CA49C6B00FDD0FF /* AirportSearchViewController.swift */,
+				329EC9E41CA8E03D00A455C0 /* AirportTableViewCell.swift */,
+			);
+			name = "Airport Search";
+			sourceTree = "<group>";
+		};
+		329EC9E61CA8E3F400A455C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				325765A51CA4B8D1003DE35C /* Constants.swift */,
+				32C49ED31CA49C6B00FDD0FF /* Assets.xcassets */,
+				32C49ED51CA49C6B00FDD0FF /* LaunchScreen.storyboard */,
+				32C49ED81CA49C6B00FDD0FF /* Info.plist */,
+				329EC9E71CA8E41E00A455C0 /* UIColorExtension.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		32C49EC01CA49C6B00FDD0FF = {
 			isa = PBXGroup;
 			children = (
@@ -111,13 +136,10 @@
 		32C49ECB1CA49C6B00FDD0FF /* Arrive */ = {
 			isa = PBXGroup;
 			children = (
-				325765AC1CA4BFAB003DE35C /* Model */,
 				32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */,
-				32C49ECE1CA49C6B00FDD0FF /* ViewController.swift */,
-				325765A51CA4B8D1003DE35C /* Constants.swift */,
-				32C49ED31CA49C6B00FDD0FF /* Assets.xcassets */,
-				32C49ED51CA49C6B00FDD0FF /* LaunchScreen.storyboard */,
-				32C49ED81CA49C6B00FDD0FF /* Info.plist */,
+				325765AC1CA4BFAB003DE35C /* Model */,
+				329EC9E31CA8E01E00A455C0 /* Airport Search */,
+				329EC9E61CA8E3F400A455C0 /* Resources */,
 			);
 			path = Arrive;
 			sourceTree = "<group>";
@@ -253,15 +275,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				325765AB1CA4BFA2003DE35C /* Arrive.xcdatamodeld in Sources */,
+				329EC9E81CA8E41E00A455C0 /* UIColorExtension.swift in Sources */,
+				32755CEA1CA68AC400D2B8BF /* Airport.swift in Sources */,
 				32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */,
 				32755CF11CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift in Sources */,
 				325765A61CA4B8D1003DE35C /* Constants.swift in Sources */,
+				329EC9E51CA8E03D00A455C0 /* AirportTableViewCell.swift in Sources */,
 				325765A81CA4BBAD003DE35C /* CoreManager.swift in Sources */,
 				32755CE01CA65C7600D2B8BF /* RemoteManager.swift in Sources */,
-				32C49ECF1CA49C6B00FDD0FF /* ViewController.swift in Sources */,
+				32C49ECF1CA49C6B00FDD0FF /* AirportSearchViewController.swift in Sources */,
 				325765B01CA4D16C003DE35C /* Flight.swift in Sources */,
 				32755CEC1CA68AFA00D2B8BF /* Flight+CoreDataProperties.swift in Sources */,
-				32755CEA1CA68AC400D2B8BF /* Airport.swift in Sources */,
 				32755CE71CA68AC400D2B8BF /* Airline.swift in Sources */,
 				32755CE61CA68AC400D2B8BF /* Airline+CoreDataProperties.swift in Sources */,
 			);

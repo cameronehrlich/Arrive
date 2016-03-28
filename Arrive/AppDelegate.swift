@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.navController = UINavigationController()
         
-        let viewController: ViewController = ViewController()
+        let viewController: AirportSearchViewController = AirportSearchViewController()
         
         self.navController!.pushViewController(viewController, animated: false)
         

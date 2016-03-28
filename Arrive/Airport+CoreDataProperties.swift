@@ -33,5 +33,6 @@ extension Airport {
     @NSManaged var weatherUrl: String?
     @NSManaged var streetAddress: String?
     @NSManaged var autocomplete: NSNumber?
+    @NSManaged var sortOrder: NSNumber?
 
 }
