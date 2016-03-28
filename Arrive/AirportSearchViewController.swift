@@ -23,6 +23,7 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
         let controller = UISearchController(searchResultsController: nil)
         controller.hidesNavigationBarDuringPresentation = false
         controller.dimsBackgroundDuringPresentation = false
+        controller.definesPresentationContext = true
         controller.searchBar.searchBarStyle = .Minimal
         controller.searchBar.sizeToFit()
         controller.searchBar.placeholder = "Where are you departing from?"
@@ -55,10 +56,7 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
         searchController.searchResultsUpdater = self
         fetchedResultsController.delegate = self
         tableView.tableHeaderView = searchController.searchBar
-        
-
-        //        CoreManager.sharedManager.fetchDepartures("ORD", departureDate: NSDate())
-        
+                
         let toolbar = UIToolbar(forAutoLayout: ())
         toolbar.barStyle = .Default
         toolbar.barTintColor = UIColor.sk_purpleColor()
@@ -87,11 +85,22 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        searchController.active = true
         searchController.searchBar.becomeFirstResponder()
     }
     
     func continueAction(sender: UIButton?) -> Void {
-        print("Continue...")
+        searchController.active = false
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            if let airport = fetchedResultsController.fetchedObjects![selectedIndexPath.item] as? Airport {
+                let viewController = FlightSelectionViewController(airportCode: airport.airportCode!)
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+        else {
+            print("you need to select an airport first!")
+        }
     }
     
     // MARK : - UITableViewDataSource
@@ -103,12 +112,15 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
         return (fetchedResultsController.fetchedObjects?.count)!
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AirportTableViewCell.identifier, forIndexPath: indexPath) as! AirportTableViewCell
-        if let airport: Airport = fetchedResultsController.fetchedObjects![indexPath.item] as? Airport {
+        if let airport = fetchedResultsController.fetchedObjects![indexPath.item] as? Airport {
             configureCell(cell, airport: airport)
         }
-        
         return cell
     }
     
@@ -118,10 +130,6 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     // MARK : - UITableViewDelegate
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGFloat(60)
-    }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         continueButton.alpha = 1.0
     }
@@ -142,7 +150,7 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
             break
         case .Update:
             if let cell = tableView.cellForRowAtIndexPath(indexPath!)! as? AirportTableViewCell {
-                if let airport: Airport = fetchedResultsController.fetchedObjects![indexPath!.item] as? Airport {
+                if let airport = fetchedResultsController.fetchedObjects![indexPath!.item] as? Airport {
                     configureCell(cell, airport: airport)
                 }
             }
@@ -167,7 +175,6 @@ class AirportSearchViewController: UIViewController, UITableViewDelegate, UITabl
             }
             
             CoreManager.sharedManager.resetAirports()
-            
             searchRequest = CoreManager.sharedManager.fetchAirports(text)
         }
     }

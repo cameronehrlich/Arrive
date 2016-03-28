@@ -10,7 +10,7 @@ import UIKit
 
 class AirportTableViewCell: UITableViewCell {
     
-    static let identifier: String = "Airport"
+    static let identifier: String = "AirportCell"
     
     let separatorLine = UIView(forAutoLayout: ())
     

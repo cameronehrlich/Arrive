@@ -44,19 +44,14 @@ class CoreManager {
     }
     
     internal func resetAirports() -> Void {
-        
         Airport.MR_truncateAll()
     }
     
     internal func airportSearchFetchedResultsController() -> NSFetchedResultsController {
-        
         let predicate = NSPredicate(format: "autocomplete = true")
-        
         let controller: NSFetchedResultsController = Airport.MR_fetchAllSortedBy("sortOrder", ascending: true, withPredicate: predicate, groupBy: nil, delegate: nil)
-        
         return controller
     }
-    
     
     // Mark: - Flights
     internal func fetchDepartures(airlineCode: String, departureDate: NSDate) -> Request {
@@ -89,5 +84,14 @@ class CoreManager {
         }
         
         return request
+    }
+    
+    internal func resetFlights() -> Void {
+        Flight.MR_truncateAll()
+    }
+    
+    internal func flightsFetchedResultsController() -> NSFetchedResultsController {
+        let controller: NSFetchedResultsController = Flight.MR_fetchAllSortedBy("departureDate", ascending: true, withPredicate: nil, groupBy: nil, delegate: nil)
+        return controller
     }
 }

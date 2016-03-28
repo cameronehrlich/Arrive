@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Instatiate root navigation view controller, and slap it into the window!
         let viewController: AirportSearchViewController = AirportSearchViewController()
         
-        self.navController = UINavigationController()
+        self.navController = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
         self.navController!.pushViewController(viewController, animated: false)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
