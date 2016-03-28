@@ -20,6 +20,7 @@
 		32755CF11CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32755CF01CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift */; };
 		329EC9E51CA8E03D00A455C0 /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329EC9E41CA8E03D00A455C0 /* AirportTableViewCell.swift */; };
 		329EC9E81CA8E41E00A455C0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329EC9E71CA8E41E00A455C0 /* UIColorExtension.swift */; };
+		329EC9EA1CA918D200A455C0 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329EC9E91CA918D200A455C0 /* UIFontExtension.swift */; };
 		32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */; };
 		32C49ECF1CA49C6B00FDD0FF /* AirportSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C49ECE1CA49C6B00FDD0FF /* AirportSearchViewController.swift */; };
 		32C49ED41CA49C6B00FDD0FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32C49ED31CA49C6B00FDD0FF /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		32755CF01CA6A50E00D2B8BF /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		329EC9E41CA8E03D00A455C0 /* AirportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
 		329EC9E71CA8E41E00A455C0 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		329EC9E91CA918D200A455C0 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		32C49EC91CA49C6B00FDD0FF /* Arrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C49ECC1CA49C6B00FDD0FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C49ECE1CA49C6B00FDD0FF /* AirportSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				32C49ED51CA49C6B00FDD0FF /* LaunchScreen.storyboard */,
 				32C49ED81CA49C6B00FDD0FF /* Info.plist */,
 				329EC9E71CA8E41E00A455C0 /* UIColorExtension.swift */,
+				329EC9E91CA918D200A455C0 /* UIFontExtension.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				325765AB1CA4BFA2003DE35C /* Arrive.xcdatamodeld in Sources */,
+				329EC9EA1CA918D200A455C0 /* UIFontExtension.swift in Sources */,
 				329EC9E81CA8E41E00A455C0 /* UIColorExtension.swift in Sources */,
 				32755CEA1CA68AC400D2B8BF /* Airport.swift in Sources */,
 				32C49ECD1CA49C6B00FDD0FF /* AppDelegate.swift in Sources */,

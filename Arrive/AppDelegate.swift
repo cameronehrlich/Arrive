@@ -17,19 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Instatiate root navigation view controller, and slap it into the window!
-        
-        self.navController = UINavigationController()
-        
         let viewController: AirportSearchViewController = AirportSearchViewController()
         
+        self.navController = UINavigationController()
         self.navController!.pushViewController(viewController, animated: false)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
         self.window!.rootViewController = navController
-        
         self.window!.backgroundColor = UIColor.whiteColor()
-        
         self.window!.makeKeyAndVisible()
         
         return true
@@ -56,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

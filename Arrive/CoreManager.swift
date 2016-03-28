@@ -26,6 +26,8 @@ class CoreManager {
     // Mark: - Airports
     internal func fetchAirports(query: String) -> Request {
         
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         let request = RemoteManager.sharedManager.fetchAirports(query, completion: { (jsonResponse, error) in
 
             if let airports = jsonResponse?["response", "airports"] {
@@ -34,6 +36,8 @@ class CoreManager {
                     newAirport?.refreshFromJSON(subJson, fromSearch: true, index: Int(index)!)
                 }
             }
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
         
         return request
