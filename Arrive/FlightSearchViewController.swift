@@ -34,7 +34,7 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         edgesForExtendedLayout = .None
         
         view.backgroundColor = UIColor.whiteColor()
-        title = "Flights]"
+        title = "Flights"
         
         timePicker.dataSource = self
         timePicker.delegate = self
