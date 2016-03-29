@@ -34,7 +34,7 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         edgesForExtendedLayout = .None
         
         view.backgroundColor = UIColor.whiteColor()
-        title = "Select Departure Time"
+        title = "Flights]"
         
         timePicker.dataSource = self
         timePicker.delegate = self
@@ -123,7 +123,7 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         
     }
     
-    // MARK: - UITableViewDelegate
+    // MARK: - UITableViewDatasource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return (fetchedResultsController.sections?.count)!
     }
@@ -140,7 +140,6 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         return "\(airportCode!) 🛫"
     }
     
-    // MARK: - UITableViewDatasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(FlightTableViewCell.identifier, forIndexPath: indexPath) as! FlightTableViewCell
         if let flight = fetchedResultsController.fetchedObjects![indexPath.item] as? Flight {
@@ -151,6 +150,14 @@ class FlightSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     
     func configureCell(cell: FlightTableViewCell, flight: Flight) -> Void {
         cell.flight = flight
+    }
+    
+    // MARK: - UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let flight = fetchedResultsController.fetchedObjects![indexPath.item] as? Flight {
+            let viewController = RequestViewController(flight: flight)
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
